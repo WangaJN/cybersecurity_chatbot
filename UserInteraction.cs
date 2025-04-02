@@ -12,11 +12,11 @@ public class UserInteraction
 	{
 		//welcome user  and prompt for name 
 		Console.ForegroundColor = ConsoleColor.Blue;
-		Console.WriteLine("\t_----------------------------------------------_");
+		Console.WriteLine("\t----------------------------------------------");
 		Console.ForegroundColor = ConsoleColor.Yellow;
 		Console.WriteLine("\t |Welcome to your cyber security chatbot| \t");
 		Console.ForegroundColor = ConsoleColor.Blue;
-		Console.WriteLine("\t_----------------------------------------------_");
+		Console.WriteLine("\t----------------------------------------------");
 		Console.ForegroundColor = ConsoleColor.White;
 
 
@@ -31,11 +31,11 @@ public class UserInteraction
 		Console.WriteLine("\t----------------------------------------------");
 		Console.ForegroundColor = ConsoleColor.White;
 		user_name = Console.ReadLine();
-		//recreate interface 
-		Console.ForegroundColor = ConsoleColor.White;
-		Console.Write("CHATBOT");
+            //recreate interface 
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("Chatbot->");
 
-		Console.ForegroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Red;
 		Console.WriteLine($"hi {user_name} ,how can i assist you today?");
 		do
 		{
@@ -61,11 +61,7 @@ public class UserInteraction
 
 			// //use filter project to check question and answers
 			new FilterAll();
-			// Console.Write("Chatbot :->");
-			// //change color of response 
-			// Console.ForegroundColor = ConsoleColor.Red;
-			// Console.WriteLine("Example answer");
-			// Console.ForegroundColor = ConsoleColor.White;//reset      
+			  
 
 
 		}

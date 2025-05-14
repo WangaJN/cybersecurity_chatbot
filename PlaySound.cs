@@ -1,7 +1,10 @@
-using System.Media.SoundPlayer;
 
 namespace cybersecurity_chatbot
 {
+using System;
+using System.IO;
+    using System.Media;
+    using System.Windows;
     class PlaySound
     {
         private string fullPath;
@@ -9,28 +12,34 @@ namespace cybersecurity_chatbot
         public PlaySound()
         {
             string path = AppDomain.CurrentDomain.BaseDirectory;
-            string newPath = path.Replace("\\bin\\Debug", "");
+            string newPath = Path.GetFullPath(Path.Combine(path, @"..\..\..\")); 
             fullPath = Path.Combine(newPath, "greeting.wav");
-        }
 
-        public string FullPath
-        {
-            get => fullPath;
-            set => fullPath = value;
+            // Check if the file exists
+            if (!File.Exists(fullPath))
+            {
+                Console.WriteLine("Error: Sound file not found at " + fullPath);
+            }
         }
 
         public void Play()
         {
             try
             {
-                using (var player = new System.Media.SoundPlayer(fullPath))
-                {
-                    player.PlaySync();
-                }
+
+                    if (File.Exists(fullPath)) // Ensure file exists before playing
+                    {
+                        SoundPlayer player = new SoundPlayer(fullPath);
+                        player.PlaySync(); // Play synchronously
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error: Cannot play sound, file not found.");
+                    }
             }
             catch (Exception error)
             {
-                Console.WriteLine(error.Message);
+                Console.WriteLine("Sound Error: " + error.Message);
             }
         }
     }
